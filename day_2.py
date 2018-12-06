@@ -25,10 +25,13 @@ def question_1(box_ids):
 def question_2(box_ids):
 	word_a = ""
 	word_b = ""
-	for word in box_ids:
+	min_ratio = 0
+	for i,word in enumerate(box_ids):
+		if i == 0:
+			min_ratio = ((len(word)-1)/len(word))-0.01
 		for to_match in box_ids:
 			ratio = SequenceMatcher(a=word,b=to_match).ratio()
-			if ratio > 0.95 and ratio < 1:
+			if ratio > min_ratio and ratio < 1:
 				word_a = word
 				word_b = to_match
 
@@ -36,7 +39,7 @@ def question_2(box_ids):
 	for i in range(0,len(word_a)):
 		if word_a[i] == word_b[i]:
 			final_word += word_a[i]
-			
+
 	return final_word
 
 
