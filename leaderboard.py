@@ -6,7 +6,7 @@ import sys
 
 def get_content():
 	req = Request('https://adventofcode.com/2018/leaderboard/private/view/33791.json')
-	req.add_header('cookie', '_ga=GA1.2.1996025138.1543855022; _gid=GA1.2.652709590.1543855022; session=53616c7465645f5fa7aa8623cf2f8cf22426115aca9eee9bb3d63276e1ebf3766a6795d73243ec913df37609cc51fbbd')
+	req.add_header('cookie', 'session=53616c7465645f5fa7aa8623cf2f8cf22426115aca9eee9bb3d63276e1ebf3766a6795d73243ec913df37609cc51fbbd')
 	resp = urlopen(req)
 	content = json.loads(resp.read())
 	return content
